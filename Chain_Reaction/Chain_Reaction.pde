@@ -2,7 +2,7 @@ Ball[] balls;
 
 void setup() {
   
-  size ( 600, 600 );
+  size ( 800, 800 );
   balls = new Ball[50];
   for (int n = 0; n < balls.length; n++) {
     balls[n] = new Ball();

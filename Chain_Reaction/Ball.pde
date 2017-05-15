@@ -10,10 +10,10 @@ class Ball {
 
   Ball() {
     
-    radius = 16;
+    radius = 18;
     float rand = random(500);
-    xCor = random( ( width - rand ) + rand / 2 );
-    yCor = random( ( height - rand ) + rand / 2 );
+    xCor = random( ( width - rand - 16) + rand / 2) + 16;
+    yCor = random( ( height - rand - 16) + rand / 2 ) + 16;
     horiz = random(8);//how much to move horizontally
     vert = random(8);//how much to move vertically
     
@@ -27,7 +27,7 @@ class Ball {
   void display() {
     
     fill(c);
-    ellipse ( xCor, yCor, ( xCor+radius ), ( yCor+radius ) );
+    ellipse ( xCor, yCor, ( 2 * radius ), ( 2 * radius ) );
     
   }
   
@@ -39,13 +39,17 @@ class Ball {
 
   void wall() {
     
-    if ( xCor + radius > width || xCor - radius < 0) {
+    if ( xCor + radius > width ) {
       horiz = -horiz;
     }
-    if ( yCor + radius > height || yCor - radius < 0) {
+    if ( xCor - radius < 0 ) {
+      horiz = -horiz;
+    }
+    if ( yCor + radius > height ) {
       vert = -vert;
     }
-    
+    if ( yCor - radius < 0 ) {
+      vert = -vert;
+    }    
   }
-  
 }
