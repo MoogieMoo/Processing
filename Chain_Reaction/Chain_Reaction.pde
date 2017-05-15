@@ -1,4 +1,5 @@
 Ball[] balls;
+boolean infected;
 
 void setup() {
   
@@ -7,6 +8,7 @@ void setup() {
   for (int n = 0; n < balls.length; n++) {
     balls[n] = new Ball();
   }
+  infected = false;
   
 }
 
@@ -19,4 +21,12 @@ void draw() {
     balls[i].move();
   }
   
+}
+
+void mouseClicked() {
+  if ( !infected ) {
+    balls[0].xCor = mouseX;
+    balls[0].yCor = mouseY;
+    
+  }
 }
